@@ -38,8 +38,8 @@ public class DepartementController {
     }
     public static void showDepartements(){
         for (Departement departement : DataBase.departements) {
-            System.out.print("Id : " + departement.getIntitule());
-            System.out.print(" | Intitulé : " + departement.getIntitule());
+            System.out.print("Id : " + departement.getId());
+            System.out.print(" | le nom de departement : " + departement.getIntitule());
             if (! Main.isNull(departement.getChefdept())) {
                 System.out.print(" | Chef : " + departement.getChefdept().getNom() + " " + departement.getChefdept().getPrenom());
             }
@@ -48,7 +48,7 @@ public class DepartementController {
 
     }
     public static void createDepartement(){
-        String intitule = Main.getStringInput("Entrez l'intitulé :");
+        String intitule = Main.getStringInput("Entrez le nom de département :");
         EnseignantController.showEnseignants();
         int id = Main.getIntInput("Sélecionnez un enseignant par id :");
         DepartementService.addDept(intitule, EnseignantServices.getEnsById(id));
@@ -61,7 +61,7 @@ public class DepartementController {
     public static void editDepartement(){
         showDepartements();
         int id = Main.getIntInput("Sélecionnez un departement par id :");
-        String intitule = Main.getStringInput("Entrez l'intitulé :");
+        String intitule = Main.getStringInput("Entrez le nom de département :");
         EnseignantController.showEnseignants();
         int idEns = Main.getIntInput("Sélecionnez un enseignant par id :");
 

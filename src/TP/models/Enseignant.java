@@ -8,19 +8,20 @@ public class Enseignant {
     private String nom,prenom;
 
     private String email,grade;
-    private Departement dept;
+    private Departement dep;
     ArrayList<Module> modules = new ArrayList<Module>();
 
 
     public Enseignant() {
     }
 
-    public Enseignant(String nom, String prenom, String email, String grade, Departement dept) {
+    public Enseignant(int id, String nom, String prenom, String email, String grade, Departement dep) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.grade = grade;
-        this.dept = dept;
+        this.dep = dep;
     }
 
     public String getNom() {
@@ -55,12 +56,12 @@ public class Enseignant {
         this.grade = grade;
     }
 
-    public Departement getDept() {
-        return dept;
+    public Departement getDep() {
+        return dep;
     }
 
-    public void setDept(Departement dept) {
-        this.dept = dept;
+    public void setDep(Departement dep) {
+        this.dep = dep;
     }
 
     public ArrayList<Module> getModules() {

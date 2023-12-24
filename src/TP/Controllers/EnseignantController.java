@@ -63,9 +63,9 @@ public class EnseignantController {
         showEnseignants();
         int id = Main.getIntInput("Sélecionnez un enseignant par id :");
         String nom = Main.getStringInput("Entrez nom de l'enseignant :");
-        String prenom = Main.getStringInput("Entrez nom de l'enseignant :");
-        String email = Main.getStringInput("Entrez nom de l'enseignant :");
-        String grade = Main.getStringInput("Entrez nom de l'enseignant :");
+        String prenom = Main.getStringInput("Entrez prenom de l'enseignant :");
+        String email = Main.getStringInput("Entrez email de l'enseignant :");
+        String grade = Main.getStringInput("Entrez grade de l'enseignant :");
         EnseignantController.showEnseignants();
         int idDep = Main.getIntInput("Sélecionnez un departement par id :");
 

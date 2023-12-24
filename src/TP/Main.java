@@ -1,6 +1,11 @@
 package TP;
 
-import TP.Controllers.DepartementController;
+import TP.Controllers.*;
+import TP.Services.DataBase;
+import TP.models.Departement;
+import TP.models.Enseignant;
+
+import java.util.Scanner;
 
 public class Main {
     public static boolean isNull(Object ob) {
@@ -55,31 +60,19 @@ public class Main {
                 DepartementController.showMenu();
                 break;
             case 2:
+                FiliereController.showMenu();
                 break;
             case 3:
+                EnseignantController.showMenu();
                 break;
             case 4:
+                ModuleController.showMenu();
                 break;
             case 5:
+                EtudiantController.showMenu();
                 break;
             default:
-                // code block
-        }
-        switch(option) {
-            case 1:
-
-                DepartementController.showMenu();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            default:
-                // code block
+                System.out.println("Quitter le menu.");
         }
 
 
@@ -91,8 +84,16 @@ public class Main {
         enseignant.setPrenom("Ben Charif");
         enseignant.setEmail("test@gmail.com");
         enseignant.setGrade("PES");
-        enseignant.setId(DB.getEnsId());
-        DB.enseignants.add(enseignant);
+        enseignant.setId(DataBase.getEnsId());
+        DataBase.enseignants.add(enseignant);
+        showPrincipalMenu();
+
+        Departement dept = new Departement();
+        dept.setIntitule("Informatique");
+        dept.setChefdept(new Enseignant());
+        dept.setFilieres(DataBase.filieres);
+        dept.setId(DataBase.getDeptId());
+        DataBase.departements.add(dept);
         showPrincipalMenu();
     }
 }

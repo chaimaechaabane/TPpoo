@@ -8,6 +8,14 @@ public class Departement {
     private Enseignant chefdept;
     ArrayList<Filiere> filieres = new ArrayList<Filiere>();
     public Departement(){}
+
+    public Departement(String intitule){
+        this.intitule = intitule;
+    }
+    public Departement(int id, String intitule){
+        this.intitule = intitule;
+        this.id = id;
+    }
     public Departement(String intitule, Enseignant chefdept){
         this.intitule = intitule;
         this.chefdept = chefdept;

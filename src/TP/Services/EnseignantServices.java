@@ -6,11 +6,11 @@ import TP.models.Enseignant;
 import java.util.ArrayList;
 
 public class EnseignantServices {
-    public static Enseignant addEns(String nom, String prenom, String email, String grade, Departement dept){
+    public static Enseignant addEns(String nom, String prenom, String email, String grade, Departement dep){
         return  new Enseignant();
     }
 
-    public static Enseignant updateEns(int id, String nom, String prenom, String email, String grade, Departement dept){
+    public static Enseignant updateEns(int id, String nom, String prenom, String email, String grade, Departement dep){
         return  new Enseignant();
     }
     public static ArrayList<Enseignant> deleteEnsById(int id){

@@ -1,10 +1,11 @@
 package TP.Controllers;
 
+
 import TP.Main;
-import TP.Services.DataBase;
-import TP.Services.DepartementService;
-import TP.Services.EnseignantServices;
-import TP.models.Enseignant;
+import TP.Services.*;
+import TP.models.Etudiant;
+import TP.models.Filiere;
+
 
 public class EtudiantController {
     public static void showMenu(){
@@ -36,24 +37,52 @@ public class EtudiantController {
     }
 
     public static void destroyEtudiant() {
+        showEtudiant();
+        int id = Main.getIntInput("Sélecionnez un etudiant par id :");
+        EtudiantServices.deleteEtdById(id);
+        showEtudiant();
     }
 
-    public static void editEtudiant() {
 
+    public static void editEtudiant() {
+        showEtudiant();
+        int id = Main.getIntInput("Sélecionnez un etudiant par id :");
+        String nom = Main.getStringInput("Entrez nom de l'etudiant :");
+        String prenom = Main.getStringInput("Entrez prenom de l'etudiant :");
+        String email = Main.getStringInput("Entrez email de l'etudiant :");
+        int apogee = Main.getIntInput("Entrez apogee de l'etudiant:");
+        EtudiantController.showEtudiant();
+        int idFil = Main.getIntInput("Sélecionnez une filiere par id :");
+
+        EtudiantServices.updateEtd(id, nom,prenom,email,apogee, FiliereServices.getFiliereById(idFil));
+
+        showEtudiant();
+        showMenu();
     }
 
     public static void showEtudiant() {
-        for (Enseignant enseignant : DataBase.enseignants) {
-            System.out.print("Id : " + enseignant.getId());
-            System.out.print(" | Nom : " + enseignant.getNom() + " " + enseignant.getPrenom());
-            System.out.print(" | Email : " + enseignant.getEmail() );
+        for (Etudiant etudiant : DataBase.etudiants) {
+            System.out.print("Id : " + etudiant.getId());
+            System.out.print(" | Nom : " + etudiant.getNom() + " " + etudiant.getPrenom());
+            System.out.print(" | Email : " + etudiant.getEmail() );
+            System.out.print(" | Apogee : " + etudiant.getApogee() );
+            System.out.print(" | Filiere : " + etudiant.getFiliere() );
 
             System.out.println("");
         }
     }
 
     public static void createEtudiant() {
-    }
+        String nom = Main.getStringInput("Entrez le nom de l'etudiant :");
+        String prenom = Main.getStringInput("Entrez le prenom de l'etudiant :");
+        String email = Main.getStringInput("Entrez lemail de l'etudiant :");
+        int apogee = Main.getIntInput("Entrez l'apogee de l'etudiant :");
+        EtudiantController.showEtudiant();
+        int id = Main.getIntInput("Sélecionnez la filiere par id :");
+        EtudiantServices.addEtd(nom,prenom,email,apogee, FiliereServices.getFiliereById(id));
 
+        showEtudiant();
+        showMenu();
+    }
 
 }
